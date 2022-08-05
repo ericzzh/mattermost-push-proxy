@@ -36,6 +36,10 @@ func (me *AndroidNotificationServer) Initialize() bool {
 }
 
 func (me *AndroidNotificationServer) SendNotification(msg *PushNotification) PushResponse {
+	if !me.AndroidPushSettings.Enable {
+		return NewOkPushResponse()
+	}
+
 	pushType := msg.Type
 	data := map[string]interface{}{
 		"ack_id":         msg.AckID,

@@ -22,9 +22,11 @@ type ConfigPushProxy struct {
 	EnableFileLog           bool
 	ThrottlePerSec          int
 	ThrottleMemoryStoreSize int
+	PushyPushSettings       []PushyPushSettings
 }
 
 type ApplePushSettings struct {
+	Enable                  bool
 	Type                    string
 	ApplePushCertPrivate    string
 	ApplePushCertPassword   string
@@ -33,8 +35,17 @@ type ApplePushSettings struct {
 }
 
 type AndroidPushSettings struct {
+	Enable        bool
 	Type          string
 	AndroidAPIKey string `json:"AndroidApiKey"`
+}
+
+type PushyPushSettings struct {
+	Enable          bool
+	SecretAPIKey    string
+	MaxConns        int
+	IdleConnTimeout int
+        ReplaceForType  string
 }
 
 // FindConfigFile searches for the filepath in a list of directories

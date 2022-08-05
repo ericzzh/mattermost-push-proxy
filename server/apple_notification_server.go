@@ -78,6 +78,9 @@ func (me *AppleNotificationServer) Initialize() bool {
 }
 
 func (me *AppleNotificationServer) SendNotification(msg *PushNotification) PushResponse {
+	if !me.ApplePushSettings.Enable {
+		return NewOkPushResponse()
+	}
 
 	data := payload.NewPayload()
 	if msg.Badge == 0 && msg.Type == PushTypeClear && msg.AppVersion > 1 {

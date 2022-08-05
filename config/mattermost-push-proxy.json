@@ -6,6 +6,7 @@
     "EnableMetrics": false,
     "ApplePushSettings":[
         {
+            "Enable": true,
             "Type":"apple",
             "ApplePushUseDevelopment":false,
             "ApplePushCertPrivate":"",
@@ -13,7 +14,16 @@
             "ApplePushTopic":"com.mattermost.Mattermost"
         },
         {
+            "Enable": true,
             "Type":"apple_rn",
+            "ApplePushUseDevelopment":false,
+            "ApplePushCertPrivate":"",
+            "ApplePushCertPassword":"",
+            "ApplePushTopic":"com.mattermost.react.native"
+        },
+        {
+            "Enable": true,
+            "Type":"apple_rnbeta",
             "ApplePushUseDevelopment":false,
             "ApplePushCertPrivate":"",
             "ApplePushCertPassword":"",
@@ -22,13 +32,31 @@
     ],
     "AndroidPushSettings":[
         {
+            "Enable": false,
             "Type":"android",
             "AndroidApiKey":""
         },
         {
+            "Enable": false,
             "Type":"android_rn",
             "AndroidApiKey":""
         }
+    ],
+    "PushyPushSettings":[
+      {
+        "Enable": true,
+        "SecretAPIKey" :"",
+        "MaxConns" : 300,
+        "IdleConnTimeout": 300,
+        "ReplaceForType": "android"
+      },
+      {
+        "Enable": true,
+        "SecretAPIKey" :"",
+        "MaxConns" : 300,
+        "IdleConnTimeout": 300,
+        "ReplaceForType": "android_rn"
+      }
     ],
     "EnableConsoleLog": true,
     "EnableFileLog": false,

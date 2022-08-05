@@ -81,6 +81,13 @@ func (s *Server) Start() {
 		}
 	}
 
+	for _, settings := range s.cfg.PushyPushSettings {
+		server := NewPushyNotificationServer(settings, s.logger, m)
+		if server.Initialize() {
+			s.pushTargets[settings.ReplaceForType] = server
+		}
+	}
+
 	router := mux.NewRouter()
 	vary := throttled.VaryBy{}
 	vary.RemoteAddr = false
