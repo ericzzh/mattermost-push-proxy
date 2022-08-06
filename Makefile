@@ -119,7 +119,8 @@ package-image: build-release
 
 PLATFORMS ?= linux/amd64 linux/arm64
 ARCHS = $(patsubst linux/%,%,$(PLATFORMS))
-IMAGE ?= mattermost/mattermost-push-proxy
+# IMAGE ?= mattermost/mattermost-push-proxy
+IMAGE ?= ericzzh/mattermost-push-proxy
 TAG ?= $(shell git describe --tags --always --dirty)
 
 # build with buildx
